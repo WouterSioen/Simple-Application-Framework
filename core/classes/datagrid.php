@@ -219,19 +219,15 @@ class SiteDataGrid extends SpoonDataGrid
         // set as first column
         $this->setColumnsSequence($column);
 
+        // add the id attribute if necessary
+        $attributes = $this->getAttributes();
+        if (!isset($attributes['id'])) {
+            $attributes['id'] = 'table_' . time();
+            $this->setAttributes(array('id' => $attributes['id']));
+        }
+
         // excluded IDs found
         if (!empty($excludedValues)) {
-            // fetch the datagrid attributes
-            $attributes = $this->getAttributes();
-
-            // set if needed
-            if (!isset($attributes['id'])) {
-                $this->setAttributes(array('id' => 'table_' . time()));
-            }
-
-            // fetch the datagrid attributes
-            $attributes = $this->getAttributes();
-
             // build array
             $excludedData['id'] = $attributes['id'];
             $excludedData['JSON'] = json_encode($excludedValues);
@@ -242,17 +238,6 @@ class SiteDataGrid extends SpoonDataGrid
 
         // checked IDs found
         if (!empty($checkedValues)) {
-            // fetch the datagrid attributes
-            $attributes = $this->getAttributes();
-
-            // set if needed
-            if (!isset($attributes['id'])) {
-                $this->setAttributes(array('id' => 'table_' . time()));
-            }
-
-            // fetch the datagrid attributes
-            $attributes = $this->getAttributes();
-
             // build array
             $checkedData['id'] = $attributes['id'];
             $checkedData['JSON'] = json_encode($checkedValues);
