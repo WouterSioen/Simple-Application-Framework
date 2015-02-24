@@ -207,7 +207,7 @@ class SiteForm extends SpoonForm
      * Adds a tags field
      *
      * @param  string       $name  The name.
-     * @param  array        $value            The initial value.
+     * @param  array        $tags             The initial value.
      * @param  int          $maxlength        The maximum-length the value can be.
      * @param  string       $class            The CSS-class to be used.
      * @param  string       $classError       The CSS-class to be used when there is an error.
